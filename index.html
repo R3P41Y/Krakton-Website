@@ -1,216 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="https://iili.io/FkzYTZv.png">
-  <title>Krakton Client 1.21.4</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <meta charset="UTF‑8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krypton on Crack — Red & Dark Vibes</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Orbitron', sans-serif;
-      background: #0a0a0a;
-      color: white;
-      margin: 0;
-      padding: 0;
+      min-height:100vh;
+      font-family:'Poppins',sans-serif;
+      background: linear-gradient(135deg, #0b0c10, #1f2833);
+      color:#eee;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:60px 20px;
+    }
+    header { text-align:center; margin-bottom:60px; user-select:none; }
+    header h1 {
+      font-weight:600;
+      font-size:3.5rem;
+      background:linear-gradient(90deg, #ff1e1e, #b00000);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      letter-spacing:0.1em;
+      margin-bottom:10px;
+      text-shadow: 0 0 8px #ff1e1e, 0 0 20px #b00000;
+    }
+    header p {
+      font-weight:300; font-size:1.3rem; color:#bbb;
+      text-shadow:0 0 6px #b00000aa;
+    }
+    .download { margin-bottom:50px; width:100%; max-width:300px; }
+    .download a {
+      display:block; text-align:center;
+      background: linear-gradient(90deg, #ff1e1e, #b00000);
+      color:white; font-weight:600; font-size:1.3rem;
+      padding:18px 0; border-radius:35px; text-decoration:none;
+      box-shadow: 0 10px 25px rgba(255,30,30,0.6);
+      transition: box-shadow 0.3s, transform 0.2s;
+      user-select:none;
+    }
+    .download-icon {
+  width: 100%;
+  max-width: 40px; /* small size */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 4px #ff1e1e);
+  border-radius: 50%;
+}
+
+.download a:hover .download-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #ff1e1e);
+}
+
+    .download a:hover {
+      box-shadow: 0 15px 40px rgba(255,30,30,0.9);
+      transform: translateY(-4px);
+    }
+    section.features {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+      width:100%; max-width:950px;
+      
+    }
+    footer {
+  margin-top: 60px;
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #777;
+  user-select: none;
+  text-align: center;
+  max-width: 700px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.discord-link img {
+  width: 18px;
+  height: 18px;
+  margin-left: 8px;
+  vertical-align: middle;
+  filter: drop-shadow(0 0 2px #ff1e1e);
+  transition: filter 0.3s ease;
+}
+
+.discord-link:hover img {
+  filter: drop-shadow(0 0 6px #ff1e1e);
+}
+
+    .feature {
+      background:rgba(20,20,20,0.8);
+      box-shadow:0 4px 20px rgba(255,30,30,0.2);
+      backdrop-filter:blur(10px);
+      -webkit-backdrop-filter:blur(10px);
+      border-radius:20px; padding:25px;
+      transition:box-shadow 0.3s, transform 0.3s;
+      color:#eee; cursor:default; user-select:none;
+    }
+    .feature:hover {
+      box-shadow: 0 0 15px #ff1e1e, 0 0 40px #b00000;
+      transform: translateY(-8px);
+    }
+    .feature h3 {
+      font-weight:600; font-size:1.5rem;
+      margin-bottom:12px;
+      background:linear-gradient(90deg, #ff1e1e, #b00000);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 8px #ff1e1e, 0 0 15px #b00000;
+    }
+    .feature p {
+      font-weight:300; font-size:1rem; line-height:1.5;
+      color:#ddd;
+    }
+    footer {
+      margin-top:60px; font-weight:300; font-size:0.9rem;
+      color:#777; user-select:none; text-align:center;
+      max-width:700px; padding-bottom:20px;
+    }
+    @media(max-width:600px){
+      header h1 { font-size:2.5rem; }
+      section.features { gap:20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav
-    class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-lg border-b border-white/10 px-6 py-4 flex justify-between items-center"
-  >
-    <h1 class="text-2xl font-bold text-cyan-400">Krakton</h1>
-    <div class="space-x-8 text-sm font-semibold">
-      <a href="#features" class="text-white hover:text-cyan-400 transition">Features</a>
-      <a href="#info" class="text-white hover:text-cyan-400 transition">Info</a>
-      <a href="#disclaimer" class="text-white hover:text-cyan-400 transition">Disclaimer</a>
-    </div>
-  </nav>
+  <header>
+    <h1>Krypton on Crack</h1>
+    <p>Cracked Krypton CLient With New Modules released weekly 1.21.1.</p>
+  </header>
 
-  <!-- Hero / Downloads -->
-  <section class="min-h-screen flex flex-col justify-center items-center text-center pt-32 px-6">
-    <h2
-      class="text-5xl font-extrabold text-cyan-400 mb-4"
+<div class="download">
+  <a href="downloads/KryptonOnCrack.zip" download>
+    <img 
+      src="https://sdmntprpolandcentral.oaiusercontent.com/files/00000000-7864-620a-a917-375800f192bf/raw?se=2025-07-28T23%3A19%3A42Z&sp=r&sv=2024-08-04&sr=b&scid=8e5119c6-7fad-5630-9b4f-930f505cf59d&skoid=76024c37-11e2-4c92-aa07-7e519fbe2d0f&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-28T22%3A07%3A12Z&ske=2025-07-29T22%3A07%3A12Z&sks=b&skv=2024-08-04&sig=/jYANIlVMbfeJiJdJ7ep13GyP0O0nHCp8SsBu4cHh7Q%3D" 
+      alt="Download Krypton" 
+      class="download-icon" 
     >
-      Krakton Client 1.21.4
-    </h2>
-    <p class="text-gray-400 mb-12 text-sm">Optimized Meteor + Baritone + Custom Modules</p>
+  </a>
+</div>
 
-    <div
-      class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6"
-    >
-      <a
-        href="https://github.com/R3P41Y/Krakton-Website/raw/refs/heads/main/Krackton-v1.12.6.jar"
-        class="p-6 rounded-xl transition flex flex-col items-start bg-gray-800 hover:bg-gray-700"
-        download
-      >
-        <h3 class="text-xl font-bold text-white">Download Krakton Client</h3>
-        <p class="text-gray-300 text-sm mt-1 mb-6">Built for 1.21.4</p>
-        <button
-          type="button"
-          class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded transition mt-auto"
-        >
-          Download
-        </button>
-      </a>
 
-      <a
-        href="https://github.com/R3P41Y/Krakton-Website/raw/refs/heads/main/Baritone.jar"
-        class="p-6 rounded-xl transition flex flex-col items-start bg-gray-800 hover:bg-gray-700"
-        target="_blank" rel="noopener noreferrer"
-      >
-        <h3 class="text-xl font-bold text-white">Download Baritone</h3>
-        <p class="text-gray-300 text-sm mt-1 mb-6">Pathfinding bot 1.21.4</p>
-        <button
-          type="button"
-          class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded transition mt-auto"
-        >
-          Download
-        </button>
-      </a>
 
-      <a
-        href="https://meteorclient.com/api/download?version=1.21.4"
-        class="p-6 rounded-xl transition flex flex-col items-start bg-gray-800 hover:bg-gray-700"
-        target="_blank" rel="noopener noreferrer"
-      >
-        <h3 class="text-xl font-bold text-white">Download Meteor Client</h3>
-        <p class="text-gray-300 text-sm mt-1 mb-6">Download link from Meteor</p>
-        
-        <button
-          type="button"
-          class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded transition mt-auto"
-        >
-          Download
-        </button>
-      </a>
-
-      <a
-        href="https://cdn.modrinth.com/data/P7dR8mSH/versions/KEv54FjE/fabric-api-0.111.0%2B1.21.4.jar"
-        class="p-6 rounded-xl transition flex flex-col items-start bg-gray-800 hover:bg-gray-700"
-        target="_blank" rel="noopener noreferrer"
-      >
-        <h3 class="text-xl font-bold text-white">Download Fabric API</h3>
-        <p class="text-gray-300 text-sm mt-1 mb-6">Modrinth download link</p>
-        <button
-          type="button"
-          class="bg-gray-600 hover:bg-gray-500 text-white font-semibold py-2 px-6 rounded transition mt-auto"
-        >
-          Download
-        </button>
-      </a>
-    </div>
+  <section class="features" aria-label="Features">
+    <article class="feature" tabindex="0">
+      <h3>⚡ Auto Totem</h3>
+      <p>Instantly swaps Totem of Undying into your offhand with zero delay.</p>
+    </article>
+    <article class="feature" tabindex="0">
+      <h3>🎯 KillAura</h3>
+      <p>Customizable KillAura for flawless PvP combat.</p>
+    </article>
+    <article class="feature" tabindex="0">
+      <h3>🧠 SpawnerESP</h3>
+      <p>Highlights mob spawners through walls — find them in seconds.</p>
+    </article>
+    <article class="feature" tabindex="0">
+      <h3>❌ Hide Scoreboard</h3>
+      <p>Removes server scoreboards and sidebar clutter for cleaner view.</p>
+    </article>
+    <article class="feature" tabindex="0">
+      <h3>🛡️ Anti‑cheat Bypass</h3>
+      <p>Designed for cracked clients to stealthily bypass popular server checks.</p>
+    </article>
+    <article class="feature" tabindex="0">
+      <h3>🚀 Optimized Performance</h3>
+      <p>Lightweight, lag‑free, with instant reactions for competitive play.</p>
+    </article>
   </section>
 
-  <!-- Features Section -->
-  <section
-    id="features"
-    class="py-24 px-6 text-center bg-black"
-  >
-    <h2 class="text-4xl font-bold mb-10 text-cyan-400">⚙️ Krakton Features</h2>
-    <div
-      class="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto text-white"
-    >
-      <div
-        class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition cursor-default"
-      >
-        <h3 class="text-xl font-semibold mb-2 text-white">GambleBot</h3>
-        <p class="text-sm text-gray-300">
-          Automated gambling and chance-based interactions for advanced client play.
-        </p>
-      </div>
-      <div
-        class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition cursor-default"
-      >
-        <h3 class="text-xl font-semibold mb-2 text-white">Player Detection with Spawner Breaker</h3>
-        <p class="text-sm text-gray-300">
-          Detect nearby players and locate spawners automatically, with fast breaker integration.
-        </p>
-      </div>
-      <div
-        class="bg-gray-800 p-6 rounded-xl hover:bg-gray-700 transition cursor-default"
-      >
-        <h3 class="text-xl font-semibold mb-2 text-white">Anti Trap</h3>
-        <p class="text-sm text-gray-300">
-          Protect yourself from trap situations by automatically breaking out or avoiding traps.
-        </p>
-      </div>
-    </div>
-  </section>
+<footer>
+  &copy; 2025 Krypton on Crack — For educational purposes only. Not affiliated with Mojang or Microsoft.
+  <br>
+  <a href="https://discord.gg/JNsEwv33" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord" class="discord-link">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
+  </a>
+</footer>
 
-  <!-- Info / Socials Section -->
-  <section id="info" class="py-24 px-6 text-center bg-black/90">
-    <h2 class="text-4xl font-bold mb-10 text-purple-400">🔗 Connect with Krakton</h2>
-    <div
-      class="flex flex-col sm:flex-row justify-center items-center gap-12 max-w-4xl mx-auto"
-    >
-      <!-- Discord -->
-      <a href="https://discord.gg/3pXqKBzSJt" target="_blank" rel="noopener noreferrer" class="group w-44 p-6 rounded-xl bg-gray-800 hover:bg-gray-700 transition flex flex-col items-center cursor-pointer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          fill="currentColor"
-          class="bi bi-discord mb-3 text-white group-hover:text-indigo-600 transition"
-          viewBox="0 0 16 16"
-        >
-          <path d="M13.545 2.907a13.2 13.2 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.577-.406.833a12.2 12.2 0 0 0-3.658 0 8 8 0 0 0-.412-.833.05.05 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.04.04 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032q.003.022.021.037a13.3 13.3 0 0 0 3.995 2.02.05.05 0 0 0 .056-.019q.463-.63.818-1.329a.05.05 0 0 0-.01-.059l-.018-.011a9 9 0 0 1-1.248-.595.05.05 0 0 1-.02-.066l.015-.019q.127-.095.248-.195a.05.05 0 0 1 .051-.007c2.619 1.196 5.454 1.196 8.041 0a.05.05 0 0 1 .053.007q.121.1.248.195a.05.05 0 0 1-.004.085 8 8 0 0 1-1.249.594.05.05 0 0 0-.03.03.05.05 0 0 0 .003.041c.24.465.515.909.817 1.329a.05.05 0 0 0 .056.019 13.2 13.2 0 0 0 4.001-2.02.05.05 0 0 0 .021-.037c.334-3.451-.559-6.449-2.366-9.106a.03.03 0 0 0-.02-.019m-8.198 7.307c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.637 1.612-1.438 1.612m5.634 0c-.789 0-1.438-.724-1.438-1.612s.637-1.613 1.438-1.613c.807 0 1.45.73 1.438 1.613 0 .888-.631 1.612-1.438 1.612"/>
-        </svg>
-        <h3 class="text-white font-semibold text-lg">Discord</h3>
-        <p class="text-gray-400 text-xs mt-1">Join our community</p>
-      </a>
 
-      <!-- YouTube -->
-      <a href="https://www.youtube.com/channel/UCUxzSO8DhM83enacbB4IE3A" target="_blank" rel="noopener noreferrer" class="group w-44 p-6 rounded-xl bg-gray-800 hover:bg-gray-700 transition flex flex-col items-center cursor-pointer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          fill="currentColor"
-          class="bi bi-youtube mb-3 text-white group-hover:text-red-600 transition"
-          viewBox="0 0 16 16"
-        >
-          <path d="M8.051 1.999h.002c1.267-.005 3.252.014 4.662.213.968.142 1.749.95 1.795 1.927.173 2.3.172 4.738.002 7.037-.041.698-.702 1.35-1.416 1.408-1.446.123-3.303.167-4.943.166-1.622 0-3.383-.045-4.927-.166-.69-.058-1.366-.71-1.413-1.417-.178-2.3-.18-4.738-.002-7.038C2.313 2.957 3.083 2.154 4.03 2.014c1.401-.21 3.388-.218 4.021-.015Zm-1.142 4.785v3.54l3.121-1.77-3.121-1.77Z"/>
-        </svg>
-        <h3 class="text-white font-semibold text-lg">YouTube</h3>
-        <p class="text-gray-400 text-xs mt-1">Watch videos & tutorials</p>
-      </a>
-
-      <!-- TikTok -->
-      <a href="https://www.tiktok.com/@kraktonclient" target="_blank" rel="noopener noreferrer" class="group w-44 p-6 rounded-xl bg-gray-800 hover:bg-gray-700 transition flex flex-col items-center cursor-pointer">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="48"
-          height="48"
-          fill="currentColor"
-          class="bi bi-tiktok mb-3 text-white group-hover:text-[#69C9D0] transition"
-          viewBox="0 0 16 16"
-        >
-          <path d="M9.776 1.169c.249 0 .52.005.791.021V8.946c0 1.827-1.356 3.413-3.047 3.413a3.234 3.234 0 0 1-2.157-.828v-1.96a2.546 2.546 0 0 0 1.41.41c.8 0 1.408-.427 1.408-1.05 0-.625-.594-1.04-1.479-1.04h-.329v-1.14h.319c.66 0 1.254-.27 1.628-.67v-.27h-.084a1.97 1.97 0 0 1-1.544-1.12 2.238 2.238 0 0 1-.222-1.072 3.913 3.913 0 0 1 2.682 1.012v-.803Zm.512 0c-.003.21-.014.42-.028.63-.177-.12-.364-.216-.559-.286V.868c.27.009.535.015.79.022Zm.044 7.777v3.748a5.213 5.213 0 0 0 3.15-1.072v2.177a7.338 7.338 0 0 1-4.242 1.37c-4.062 0-7.357-3.484-7.357-7.776 0-3.377 2.188-6.255 5.224-7.276v2.143A5.027 5.027 0 0 0 4.5 8.352a4.95 4.95 0 0 0 5.832 1.413Z"/>
-        </svg>
-        <h3 class="text-white font-semibold text-lg">TikTok</h3>
-        <p class="text-gray-400 text-xs mt-1">Follow our latest clips</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- Disclaimer Section -->
-  <section id="disclaimer" class="py-24 px-6 text-center bg-black">
-    <h2 class="text-4xl font-bold mb-10 text-purple-400">📜 Disclaimer</h2>
-    <p class="max-w-3xl mx-auto text-gray-400 text-sm leading-relaxed">
-      Krakton Client is a Minecraft mod client optimized for 1.21.4 featuring custom modules such as GambleBot, Player Detection with Spawner Breaker, and Anti Trap. This client is intended for educational and entertainment purposes only. Use responsibly and comply with server rules.
-    </p>
-  </section>
-
-  <footer class="bg-black/80 border-t border-white/10 py-6 text-center text-gray-500 text-xs">
-    &copy; 2025 Krakton Client. All rights reserved.
-  </footer>
 </body>
 </html>
